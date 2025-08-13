@@ -125,7 +125,6 @@ export default function NewsTable() {
                 <TableCell className="font-semibold">ID</TableCell>
                 <TableCell className="font-semibold">Tiêu đề</TableCell>
                 <TableCell className="font-semibold">Hình ảnh</TableCell>
-                <TableCell className="font-semibold">Nội dung</TableCell>
                 <TableCell className="font-semibold">Thời gian</TableCell>
                 <TableCell className="font-semibold">Trạng thái</TableCell>
                 <TableCell className="font-semibold">Hành động</TableCell>
@@ -158,9 +157,6 @@ export default function NewsTable() {
                           Không có ảnh
                         </span>
                       )}
-                    </TableCell>
-                    <TableCell>
-                      <span className="line-clamp-2">{news.content}</span>
                     </TableCell>
                     <TableCell>{formatDate(news.createdAt)}</TableCell>
                     <TableCell>

@@ -11,8 +11,8 @@ async function login(credentials: LoginRequest): Promise<ApiResponse<AuthRespons
   try {
     const response = await axiosInstance.post<ApiResponse<AuthResponse>>(`${baseUrl}/login`, credentials);
 
-    if (response.data.success && response.data.data?.token) {
-      localStorage.setItem('token', response.data.data.token);
+    if (response.data.success && response.data.data?.accessToken) {
+      localStorage.setItem('token', response.data.data.accessToken);
       localStorage.setItem('refreshToken', response.data.data.refreshToken || '');
     }
 
@@ -53,8 +53,8 @@ async function refreshToken(): Promise<boolean> {
 
     const response = await axiosInstance.post<ApiResponse<AuthResponse>>(`${baseUrl}/refresh-token`, { refreshToken });
 
-    if (response.data.success && response.data.data?.token) {
-      localStorage.setItem('token', response.data.data.token);
+    if (response.data.success && response.data.data?.accessToken) {
+      localStorage.setItem('token', response.data.data.accessToken);
       localStorage.setItem('refreshToken', response.data.data.refreshToken || '');
       return true;
     }
